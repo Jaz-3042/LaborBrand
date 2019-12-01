@@ -6,18 +6,37 @@ namespace App\Modelos;
 
 class Municipio
 {
-    Private $Nombre;
-    Private $Codigo;
+    private $id;
+    private $Nombre;
+    private $Codigo;
 
     /**
      * Municipio constructor.
+     * @param $id
      * @param $Nombre
      * @param $Codigo
      */
-    public function __construct($Nombre, $Codigo)
+    public function __construct($id, $Nombre, $Codigo)
     {
+        $this->id = $id;
         $this->Nombre = $Nombre;
         $this->Codigo = $Codigo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -52,11 +71,15 @@ class Municipio
         $this->Codigo = $Codigo;
     }
 
+
+
     public function MostarDatos()
     {
         echo "<H4>Los datos de la persona son: </H4>";
         echo "<ul>";
+        echo   "<li><strong>Nombres: </strong>".$this->getId()."</li>";
         echo   "<li><strong>Nombres: </strong>".$this->getNombre()."</li>";
         echo   "<li><strong>Apellidos: </strong>".$this->getCodigo()."</li>";
         echo "</ul>";
+    }
 }

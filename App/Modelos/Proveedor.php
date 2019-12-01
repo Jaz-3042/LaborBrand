@@ -6,21 +6,40 @@ namespace App\Modelos;
 
 class Proveedor
 {
+    private $id;
     private $Razon_Social;
     private $Nit;
     private $Representante_Legal;
 
     /**
      * Proveedor constructor.
+     * @param $id
      * @param $Razon_Social
      * @param $Nit
      * @param $Representante_Legal
      */
-    public function __construct($Razon_Social, $Nit, $Representante_Legal)
+    public function __construct($id, $Razon_Social, $Nit, $Representante_Legal)
     {
+        $this->id = $id;
         $this->Razon_Social = $Razon_Social;
         $this->Nit = $Nit;
         $this->Representante_Legal = $Representante_Legal;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -71,12 +90,15 @@ class Proveedor
         $this->Representante_Legal = $Representante_Legal;
     }
 
+
     public function MostarDatos()
     {
         echo "<H4>Los datos de la persona son: </H4>";
         echo "<ul>";
+        echo   "<li><strong>Nombres: </strong>".$this->getId()."</li>";
         echo   "<li><strong>Nombres: </strong>".$this->getRazonSocial()."</li>";
         echo   "<li><strong>Apellidos: </strong>".$this->getNit()."</li>";
         echo   "<li><strong>Telefono: </strong>".$this->getRepresentanteLegal()."</li>";
         echo "</ul>";
+    }
 }

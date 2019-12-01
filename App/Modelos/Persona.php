@@ -6,6 +6,7 @@ namespace App\Modelos;
 
 class Persona
 {
+    private $id;
     private $Nombres;
     private $Apellidos;
     private $Tipo_Documento;
@@ -15,10 +16,11 @@ class Persona
     private $Direccion;
     private $Email;
     private $Rol;
-    private $Contraseña;
+    private $Contrasena;
 
     /**
      * Persona constructor.
+     * @param $id
      * @param $Nombres
      * @param $Apellidos
      * @param $Tipo_Documento
@@ -28,10 +30,11 @@ class Persona
      * @param $Direccion
      * @param $Email
      * @param $Rol
-     * @param $Contraseña
+     * @param $Contrasena
      */
-    public function __construct($Nombres, $Apellidos, $Tipo_Documento, $N_Documento, $Telefono, $N_Celular, $Direccion, $Email, $Rol, $Contraseña)
+    public function __construct($id, $Nombres, $Apellidos, $Tipo_Documento, $N_Documento, $Telefono, $N_Celular, $Direccion, $Email, $Rol, $Contrasena)
     {
+        $this->id = $id;
         $this->Nombres = $Nombres;
         $this->Apellidos = $Apellidos;
         $this->Tipo_Documento = $Tipo_Documento;
@@ -41,7 +44,23 @@ class Persona
         $this->Direccion = $Direccion;
         $this->Email = $Email;
         $this->Rol = $Rol;
-        $this->Contraseña = $Contraseña;
+        $this->Contrasena = $Contrasena;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -191,22 +210,25 @@ class Persona
     /**
      * @return mixed
      */
-    public function getContraseña()
+    public function getContrasena()
     {
-        return $this->Contraseña;
+        return $this->Contrasena;
     }
 
     /**
-     * @param mixed $Contraseña
+     * @param mixed $Contrasena
      */
-    public function setContraseña($Contraseña)
+    public function setContrasena($Contrasena)
     {
-        $this->Contraseña = $Contraseña;
+        $this->Contrasena = $Contrasena;
     }
+
+
     public function MostarDatos()
     {
         echo "<H4>Los datos de la persona son: </H4>";
         echo "<ul>";
+        echo   "<li><strong>Nombres: </strong>".$this->getId()."</li>";
         echo   "<li><strong>Nombres: </strong>".$this->getNombres()."</li>";
         echo   "<li><strong>Apellidos: </strong>".$this->getApellidos()."</li>";
         echo   "<li><strong>Telefono: </strong>".$this->getTipoDocumento()."</li>";
@@ -218,4 +240,5 @@ class Persona
         echo   "<li><strong>Documento: </strong>".$this->getContraseña()."</li>";
         echo "</ul>";
 
+    }
 }

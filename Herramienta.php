@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Modelos
+namespace App\Modelos;
 
 class Herramienta
 {
-    private $id
-    private $Nombre
-    private $Tamano
-    private $Unidad_Medida
-    private $Garantia
-    private $Estado
+    private $Id;
+    private $Nombre;
+    private $Tamano;
+    private $Unidad_Medida;
+    private $Garantia;
+    private $Estado;
 
     /**
  * Herramienta constructor.
@@ -21,7 +21,7 @@ class Herramienta
  * @param $Estado
  */public function __construct($id, $Nombre, $Tamano, $Unidad_Medida, $Garantia, $Estado)
 {
-    $this->id = $id;
+    $this->Id = $Id;
     $this->Nombre = $Nombre;
     $this->Tamano = $Tamano;
     $this->Unidad_Medida = $Unidad_Medida;
@@ -32,13 +32,13 @@ class Herramienta
  */
 public function getId()
 {
-    return $this->id;
+    return $this->Id;
 }/**
  * @param mixed $id
  */
 public function setId($id): void
 {
-    $this->id = $id;
+    $this->Id = $id;
 }/**
  * @return mixed
  */

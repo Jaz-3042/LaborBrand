@@ -6,9 +6,9 @@ namespace App\Modelos;
 
 class Abono
 {
-    private $Id
-    private $Valor
-    private $Fecha
+    private $Id;
+    private $Valor;
+    private $Fecha;
 
     /**
      * Abono constructor.

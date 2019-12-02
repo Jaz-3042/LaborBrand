@@ -6,9 +6,9 @@ namespace App\Modelos;
 
 class Compra_Herramienta
 {
-    private $Id
-    private $Cantidad
-    private $Valor_Costo
+    private $Id;
+    private $Cantidad;
+    private $Valor_Costo;
 
 
     /**

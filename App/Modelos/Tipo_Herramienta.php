@@ -5,11 +5,13 @@ namespace App\Modelos;
 
 
 class Tipo_Herramienta
+
 {
-    private $id
-    private $Nombre
-    private $Codigo
-    private $Descripcion
+    private $Id;
+    private $Nombre;
+    private $Codigo;
+    private $Descripcion;
+
     /**
  * Tipo_Herramienta constructor.
  * @param $id
@@ -17,9 +19,9 @@ class Tipo_Herramienta
  * @param $Codigo
  * @param $Descripcion
  */
-    public function __construct($id, $Nombre, $Codigo, $Descripcion)
+    public function __construct($Id, $Nombre, $Codigo, $Descripcion)
 {
-    $this->id = $id;
+    $this->Id = $Id;
     $this->Nombre = $Nombre;
     $this->Codigo = $Codigo;
     $this->Descripcion = $Descripcion;
@@ -28,13 +30,13 @@ class Tipo_Herramienta
  */
 public function getId()
 {
-    return $this->id;
+    return $this->Id;
 }/**
  * @param mixed $id
  */
 public function setId($id): void
 {
-    $this->id = $id;
+    $this->Id = $Id;
 }/**
  * @return mixed
  */
@@ -73,7 +75,7 @@ public function setDescripcion($Descripcion): void
     $this->Descripcion = $Descripcion;
 }
 
-public function ()
+public function mostrarDatos()
 {
     echo "<h4>Los datos de Tipo Herramienta son: </h4>";
     echo "<ul>";

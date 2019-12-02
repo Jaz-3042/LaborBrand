@@ -4,7 +4,7 @@
 namespace App\Modelos;
 
 
-class vehiculo
+class Vehiculo
 {
     private$id;
     private$N_placa;

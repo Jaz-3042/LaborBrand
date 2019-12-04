@@ -228,16 +228,16 @@ class Persona
     {
         echo "<H4>Los datos de la persona son: </H4>";
         echo "<ul>";
-        echo   "<li><strong>Nombres: </strong>".$this->getId()."</li>";
+        echo   "<li><strong>id: </strong>".$this->getId()."</li>";
         echo   "<li><strong>Nombres: </strong>".$this->getNombres()."</li>";
         echo   "<li><strong>Apellidos: </strong>".$this->getApellidos()."</li>";
-        echo   "<li><strong>Telefono: </strong>".$this->getTipoDocumento()."</li>";
-        echo   "<li><strong>Telefono: </strong>".$this->getNDocumento()."</li>";
+        echo   "<li><strong>Tipo_Documento: </strong>".$this->getTipoDocumento()."</li>";
+        echo   "<li><strong>N_Documento: </strong>".$this->getNDocumento()."</li>";
         echo   "<li><strong>Telefono: </strong>".$this->getTelefono()."</li>";
-        echo   "<li><strong>Tipo Documento: </strong>".$this->getNCelular()."</li>";
-        echo   "<li><strong>Documento: </strong>".$this->getEmail()."</li>";
-        echo   "<li><strong>Documento: </strong>".$this->getRol()."</li>";
-        echo   "<li><strong>Documento: </strong>".$this->getContraseña()."</li>";
+        echo   "<li><strong>N_Celular: </strong>".$this->getNCelular()."</li>";
+        echo   "<li><strong>Email: </strong>".$this->getEmail()."</li>";
+        echo   "<li><strong>Rol: </strong>".$this->getRol()."</li>";
+        echo   "<li><strong>Contrasena: </strong>".$this->getContrasena()."</li>";
         echo "</ul>";
 
     }

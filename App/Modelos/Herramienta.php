@@ -36,9 +36,9 @@ public function getId()
 }/**
  * @param mixed $id
  */
-public function setId($id): void
+public function setId($Id): void
 {
-    $this->Id = $id;
+    $this->Id = $Id;
 }/**
  * @return mixed
  */

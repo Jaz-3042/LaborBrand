@@ -1,0 +1,65 @@
+{
+  "name": "proyecto2019/laborbrand",
+  "version": "0.0.1",
+  "type": "project",
+  "keywords": ["console", "tool", "example"],
+  "homepage": "https://google.com",
+  "time": "2019-10-28",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tatiana Contreras",
+      "email": "tatianacontreras353@gmail.com",
+      "homepage": "http://www.sena.edu.co",
+      "role": "Developer"
+    },
+    {
+      "name": "Lina Guerrero",
+      "email": "marcelalina17@gmail.com",
+      "homepage": "http://www.sena.edu.co",
+      "role": "Developer"
+    },
+    {
+      "name": "Karen Lopez",
+      "email": "lkarenvictoria9@gmail.com",
+      "homepage": "http://www.sena.edu.co",
+      "role": "Developer"
+    },
+    {
+      "name": "Jazlidin Orduz",
+      "email": "jazorduzr.14@gmail.com",
+      "homepage": "http://www.sena.edu.co",
+      "role": "Developer"
+    },
+    {
+      "name": "Sandra Orduz",
+      "email": "snadraorduzsena@gmail.com",
+      "homepage": "http://www.sena.edu.co",
+      "role": "Developer"
+    }
+  ],
+  "require":{
+    "php": ">=7.1.0",
+    "almasaeed2010/adminlte": "^3.0",
+    "vlucas/phpdotenv": "^3.6"
+
+  },
+  "require-dev": {
+
+  },
+  "autoload": {
+
+  },
+  "scripts": {
+    "post-install-cmd": [
+    ],
+    "post-update-cmd": [
+    ]
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "extra": {
+
+  }
+}

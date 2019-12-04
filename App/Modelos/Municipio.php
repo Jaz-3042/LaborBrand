@@ -77,9 +77,9 @@ class Municipio
     {
         echo "<H4>Los datos de la persona son: </H4>";
         echo "<ul>";
-        echo   "<li><strong>Nombres: </strong>".$this->getId()."</li>";
-        echo   "<li><strong>Nombres: </strong>".$this->getNombre()."</li>";
-        echo   "<li><strong>Apellidos: </strong>".$this->getCodigo()."</li>";
+        echo   "<li><strong>id: </strong>".$this->getId()."</li>";
+        echo   "<li><strong>Nombre: </strong>".$this->getNombre()."</li>";
+        echo   "<li><strong>Codigo: </strong>".$this->getCodigo()."</li>";
         echo "</ul>";
     }
 }

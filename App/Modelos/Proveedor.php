@@ -95,10 +95,10 @@ class Proveedor
     {
         echo "<H4>Los datos de la persona son: </H4>";
         echo "<ul>";
-        echo   "<li><strong>Nombres: </strong>".$this->getId()."</li>";
-        echo   "<li><strong>Nombres: </strong>".$this->getRazonSocial()."</li>";
-        echo   "<li><strong>Apellidos: </strong>".$this->getNit()."</li>";
-        echo   "<li><strong>Telefono: </strong>".$this->getRepresentanteLegal()."</li>";
+        echo   "<li><strong>id: </strong>".$this->getId()."</li>";
+        echo   "<li><strong>Razon_Social </strong>".$this->getRazonSocial()."</li>";
+        echo   "<li><strong>Nit: </strong>".$this->getNit()."</li>";
+        echo   "<li><strong>Representante_Legal: </strong>".$this->getRepresentanteLegal()."</li>";
         echo "</ul>";
     }
 }

@@ -5,11 +5,7 @@
       <paths name="Laragon">
         <serverdata>
           <mappings>
-<<<<<<< HEAD
             <mapping deploy="\LaborBrand" local="$PROJECT_DIR$" web="/LaborBrand" />
-=======
-            <mapping deploy="/LaborBrand" local="$PROJECT_DIR$" web="/LaborBrand" />
->>>>>>> 1981cbb9501b43894aac1eec48d6d7a319e41f83
           </mappings>
         </serverdata>
       </paths>

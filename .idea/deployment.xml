@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Laragon">
-    <serverData>
-      <paths name="Laragon">
-        <serverdata>
-          <mappings>
-<<<<<<< HEAD
-            <mapping deploy="\LaborBrand" local="$PROJECT_DIR$" web="/LaborBrand" />
-=======
-            <mapping deploy="/LaborBrand" local="$PROJECT_DIR$" web="/LaborBrand" />
->>>>>>> 1981cbb9501b43894aac1eec48d6d7a319e41f83
-          </mappings>
-        </serverdata>
-      </paths>
-    </serverData>
-  </component>
+  <component name="PublishConfigData" serverName="Laragon" />
 </project>

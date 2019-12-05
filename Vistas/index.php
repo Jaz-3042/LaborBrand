@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>          
   <title><?= getenv( 'TITLE_SITE') ?> | Layout</title>
   <?php require("partials/head_imports.php"); ?>
 </head>
@@ -53,7 +53,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                Pie de Pagina.
+                Pie de Página.
               </div>
               <!-- /.card-footer-->
             </div>
@@ -62,6 +62,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
     <?php require ('partials/footer.php');?>
 </div>
 <!-- ./wrapper -->

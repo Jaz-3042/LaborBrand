@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>          
+<head>
   <title><?= getenv( 'TITLE_SITE') ?> | Layout</title>
   <?php require("partials/head_imports.php"); ?>
 </head>

@@ -7,4 +7,3 @@ $baseURL = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']."/".getenv('RO
 
 $adminlteURL = $baseURL."/vendor/almasaeed2010/adminlte";
 
-?>

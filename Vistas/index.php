@@ -60,10 +60,11 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+   
     <?php require ('partials/footer.php');?>
 </div>
 <!-- ./wrapper -->
 <?php require ('partials/scripts.php');?>
 </body>
 </html>
+

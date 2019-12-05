@@ -6,4 +6,3 @@
 <script src="<?= $adminlteURL ?>/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= $adminlteURL ?>/dist/js/demo.js"></script>
-© 2019 GitHub, Inc.

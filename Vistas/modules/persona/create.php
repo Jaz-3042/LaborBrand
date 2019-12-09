@@ -46,7 +46,7 @@
                         <div class="form-group row">
                             <label for="Nombres" class="col-sm-2 col-form-label">Nombres</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="nombres" name="nombres" placeholder="Ingrese sus nombres">
+                                <input required type="text" class="form-control" id="Nombres" name="Nombres" placeholder="Ingrese sus nombres">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -63,37 +63,38 @@
                                     <option value="C.C">Cedula de Ciudadania</option>
                                     <option value="C.E">Cedula de Extranjeria</option>
                                     <option value="Pasaporte">Pasaporte</option>
+
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="N_Documento" class="col-sm-2 col-form-label">Documento</label>
+                            <label for="N_documento" class="col-sm-2 col-form-label">Documento</label>
                             <div class="col-sm-10">
-                                <input required type="number" max="11" min="7" class="form-control" id="N_Documento" name="N_Documento" placeholder="Ingrese su documento">
+                                <input required type="number" max="11" min="7" class="form-control" id="N_documento" name="N_Documento" placeholder="Ingrese su documento">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Telefono" class="col-sm-2 col-form-label">Telefono</label>
+                            <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
                             <div class="col-sm-10">
-                                <input required type="number" max="11" min="6" class="form-control" id="Telefono" name="Telefono" placeholder="Ingrese su numero de telefono">
+                                <input required type="number" max="11" min="6" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de telefono">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="N_Celular" class="col-sm-2 col-form-label">Celular</label>
+                            <label for="telefono" class="col-sm-2 col-form-label">Celular</label>
                             <div class="col-sm-10">
-                                <input required type="number" max="11" min="6" class="form-control" id="N_Celular" name="N_Celular" placeholder="Ingrese su numero de celular">
+                                <input required type="number" max="11" min="6" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de celular">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Direccion" class="col-sm-2 col-form-label">Direccion</label>
+                            <label for="direccion" class="col-sm-2 col-form-label">Direccion</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="Direccion" name="Direccion" placeholder="Ingrese su direccion">
+                                <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su direccion">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Email" class="col-sm-2 col-form-label">E_mail</label>
+                            <label for="Email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="Email" name="Email" placeholder="Ingrese su correo electrónico">
+                                <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su direccion">
                             </div>
                         </div>
                     </div>

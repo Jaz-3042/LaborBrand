@@ -1,10 +1,9 @@
-<?php require('../vendor/autoload.php'); ?>
 <?php
-$dotenv = Dotenv\Dotenv::create("../");
+$basePath = realpath($_SERVER["DOCUMENT_ROOT"])."\\LaborBrand\\";
+require($basePath.'vendor\\autoload.php');
+$dotenv = Dotenv\Dotenv::create($basePath);
 $dotenv->load();
 
 $baseURL = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']."/".getenv('ROOT_FOLDER');
-//https://localhost/LaborBrand/
 $adminlteURL = $baseURL."/vendor/almasaeed2010/adminlte";
-//https://localhost/WebER/vendor/almasaeed2010/adminlte
 ?>

@@ -44,7 +44,7 @@
                 <form class="form-horizontal">
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="Razon_Social" class="col-sm-2 col-form-label"Razon Social</label>
+                            <label for="Razon_Social" class="col-sm-2 col-form-label">Razon Social</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="Razon_Social" name="Razon_Social" placeholder="Ingrese nombre empresa">
                             </div>

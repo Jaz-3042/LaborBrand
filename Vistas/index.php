@@ -45,7 +45,7 @@
                   <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
                     <i class="fas fa-times"></i></button>
                 </div>
-              </div>
+              </div>s
               <div class="card-body">
                 Contenido del modulo
               </div>
@@ -60,10 +60,11 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+   
     <?php require ('partials/footer.php');?>
 </div>
 <!-- ./wrapper -->
 <?php require ('partials/scripts.php');?>
 </body>
 </html>
+

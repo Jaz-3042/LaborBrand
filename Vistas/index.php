@@ -10,7 +10,8 @@
 
 <!-- Site wrapper -->
 <div class="wrapper">
-    <?php require ("partials/navbar_customization.php"); ?>
+    <?php require("partials/navbar_customization.php"); ?>
+
     <?php require("partials/sliderbar_main_menu.php"); ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -37,13 +38,15 @@
 
             <!-- Default box -->
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Titulo Modulo</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fas fa-times"></i></button>
+                <div class="card-header">
+                    <h3 class="card-title">Título Modulo</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i></button>
+                    </div>
                 </div>
               </div>s
               <div class="card-body">
@@ -56,15 +59,14 @@
               <!-- /.card-footer-->
             </div>
             <!-- /.card -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-   
-    <?php require ('partials/footer.php');?>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <?php require('partials/footer.php');?>
 </div>
 <!-- ./wrapper -->
 <?php require ('partials/scripts.php');?>
 </body>
 </html>
-

@@ -1,16 +1,15 @@
 <?php require("partials/routes.php"); ?>
-
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 <head>
-    <title><?= getenv( 'TITLE_SITE') ?> | Layout</title>
+    <title><?= getenv('TITLE_SITE') ?> | Layout</title>
     <?php require("partials/head_imports.php"); ?>
 </head>
-<body class="hold-transition sidebar-mini ">
+<body class="hold-transition sidebar-mini">
 
 <!-- Site wrapper -->
 <div class="wrapper">
-    <?php require ("partials/navbar_customization.php"); ?>
+    <?php require("partials/navbar_customization.php"); ?>
 
     <?php require("partials/sliderbar_main_menu.php"); ?>
 
@@ -21,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Repuesto</h1>
+                        <h1>Repuesto_Orden_Servicio</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -39,7 +38,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Titulo Modulo</h3>
+                    <h3 class="card-title">Título Modulo</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -53,7 +52,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    Pie de Pagina.
+                    Pie de Página.
                 </div>
                 <!-- /.card-footer-->
             </div>
@@ -62,9 +61,10 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
     <?php require ('partials/footer.php');?>
 </div>
 <!-- ./wrapper -->
 <?php require ('partials/scripts.php');?>
 </body>
-</html>
+    </html><?php

@@ -1,6 +1,6 @@
 <?php require("partials/routes.php"); ?>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 <head>
     <title><?= getenv('TITLE_SITE') ?> | Layout</title>
     <?php require("partials/head_imports.php"); ?>
@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Pagina Principal</h1>
+                        <h1>Compra</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -62,9 +62,9 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <?php require('partials/footer.php');?>
+    <?php require ('partials/footer.php');?>
 </div>
 <!-- ./wrapper -->
-<?php require('partials/scripts.php');?>
+<?php require ('partials/scripts.php');?>
 </body>
-</html>
+    </html><?php

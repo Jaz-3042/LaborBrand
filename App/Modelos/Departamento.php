@@ -2,47 +2,55 @@
 
 
 namespace App\Modelos;
+use  App\Modelos\BasicModel;
 
+require('BasicModel.php');
 
-class Departamento
+class Departamento extends BasicModel
 {
-    private $id;
+    private $Id;
     private $Nombre;
     private $Codigo;
 
     /**
      * Departamento constructor.
-     * @param $id
+     * @param $Id
      * @param $Nombre
      * @param $Codigo
      */
-    public function __construct($id, $Nombre, $Codigo)
+    public function __construct($Departamento = array())
     {
-        $this->id = $id;
-        $this->Nombre = $Nombre;
-        $this->Codigo = $Codigo;
+        parent::__construct(); //Llama al contructor padre "la clase conexion" para conectarme a la BD
+        $this->Id = $Departamento['Id'] ?? null;
+        $this->Nombre = $Departamento['Nombre'] ?? null;
+        $this->Codigo = $Departamento['Codigo'] ?? null;
+    }
+
+    /* Metodo destructor cierra la conexion. */
+    function __destruct() {
+        $this->Disconnect();
     }
 
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return $this->Id;
     }
 
     /**
-     * @param mixed $id
+     * @param mixed $Id
      */
-    public function setId($id)
+    public function setId($Id) : void
     {
-        $this->id = $id;
+        $this->Id = $Id;
     }
 
     /**
      * @return mixed
      */
-    public function getNombre()
+    public function getNombre() : string
     {
         return $this->Nombre;
     }
@@ -50,7 +58,7 @@ class Departamento
     /**
      * @param mixed $Nombre
      */
-    public function setNombre($Nombre)
+    public function setNombre($Nombre) : void
     {
         $this->Nombre = $Nombre;
     }
@@ -58,7 +66,7 @@ class Departamento
     /**
      * @return mixed
      */
-    public function getCodigo()
+    public function getCodigo() : int
     {
         return $this->Codigo;
     }
@@ -66,19 +74,80 @@ class Departamento
     /**
      * @param mixed $Codigo
      */
-    public function setCodigo($Codigo)
+    public function setCodigo($Codigo) : void
     {
         $this->Codigo = $Codigo;
     }
 
-
-    public function MostarDatos()
+    public function create() : bool
     {
-        echo "<H4>Los datos de la persona son: </H4>";
-        echo "<ul>";
-        echo   "<li><strong>id: </strong>".$this->getId()."</li>";
-        echo   "<li><strong>Nombre: </strong>".$this->getNombre()."</li>";
-        echo   "<li><strong>Codigo: </strong>".$this->getCodigo()."</li>";
-        echo "</ul>";
+        $result = $this->insertRow("INSERT INTO bd_laborbrand.departamento VALUES (NULL, ?, ?)", array(
+                $this->Nombre,
+                $this->Codigo,
+            )
+        );
+        $this->Disconnect();
+        return $result;
+    }
+    public function update() : bool
+    {
+        $this->updateRow("UPDATE bd_laborbrand.departamento SET Nombre = ?, Codigo = ?  WHERE Id = ?", array(
+                $this->Nombre,
+                $this->Codigo,
+                $this->Id
+            )
+        );
+        $this->Disconnect();
+    }
+
+    protected function deleted($Id) : void
+    {
+        // TODO: Implement deleted() method.
+    }
+
+    protected static function search($query) : array
+    {
+        $arrDepartamento = array();
+        $tmp = new Departamento();
+        $getrows = $tmp->getRows($query);
+
+        foreach ($getrows as $valor) {
+            $Departamento = new Departamento();
+            $Departamento->Id = $valor['Id'];
+            $Departamento->Nombre = $valor['Nombre'];
+            $Departamento->Codigo = $valor['Codigo'];
+            $Departamento->Disconnect();
+            array_push($arrDepartamento, $Departamento);
+        }
+        $tmp->Disconnect();
+        return $arrDepartamento;
+    }
+
+    public static function searchForId($Id) : Departamento
+    {
+        $Departamento = null;
+        if ($Id > 0){
+            $Departamento = new Departamento();
+            $getrow = $Departamento->getRow("SELECT * FROM bd_laborbrand.departamento WHERE Id =?", array($Id));
+            $Departamento->Id = $getrow['Id'];
+            $Departamento->Nombre = $getrow['Nombre'];
+            $Departamento->Codigo = $getrow['Codigo'];
+        }
+            $Departamento->Disconnect();
+            return $Departamento;
+    }
+
+    public static function getAll() : array
+    {
+        return Departamento::search("SELECT * FROM bd_laborbrand.departamento");
+    }
+    public static function departamentoRegistrado ($Nombre) : bool
+    {
+        $result = Departamento::search("SELECT id FROM bd_laborbrand.departamento where Nombre = ".$Nombre);
+        if (count($result) > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

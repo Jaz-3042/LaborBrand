@@ -1,18 +1,18 @@
-<?php require("partials/routes.php"); ?>
+<?php require("../../partials/routes.php"); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title><?= getenv( 'TITLE_SITE') ?> | Layout</title>
-    <?php require("partials/head_imports.php"); ?>
+    <?php require("../../partials/head_imports.php"); ?>
 </head>
 <body class="hold-transition sidebar-mini ">
 
 <!-- Site wrapper -->
 <div class="wrapper">
-    <?php require ("partials/navbar_customization.php"); ?>
+    <?php require ("../../partials/navbar_customization.php"); ?>
 
-    <?php require("partials/sliderbar_main_menu.php"); ?>
+    <?php require("../../partials/sliderbar_main_menu.php"); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -36,11 +36,23 @@
         <!-- Main content -->
         <section class="content">
 
+            <?php if(!empty($_GET['respuesta']) && !empty($_GET['action'])){ ?>
+                <?php if ($_GET['respuesta'] == "correcto"){ ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-check"></i> Correcto!</h5>
+                        <?php if ($_GET['action'] == "create"){ ?>
+                            El repuesto ha sido creado con exito!
+                        <?php }else if($_GET['action'] == "update"){ ?>
+                            La descripcion del repuesto ha sido actualizada correctamente!
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Titulo Modulo</h3>
-
+                    <h3 class="card-title">Gestionar Repuestos</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                             <i class="fas fa-minus"></i></button>
@@ -49,11 +61,23 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    Contenido del modulo
+                    <div class="row">
+                        <div class="col-auto mr-auto"></div>
+                        <div class="col-auto">
+                            <a role="button" href="create.php" class="btn btn-primary float-right" style="margin-right: 5px;">
+                                <i class="fas fa-plus"></i> Crear Repuesto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Contenido del modulo
+                        </div>
+                    </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    Pie de Pagina.
+                    Pie de Página.
                 </div>
                 <!-- /.card-footer-->
             </div>
@@ -62,9 +86,10 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php require ('partials/footer.php');?>
+
+    <?php require ('../../partials/footer.php');?>
 </div>
 <!-- ./wrapper -->
-<?php require ('partials/scripts.php');?>
+<?php require ('../../partials/scripts.php');?>
 </body>
 </html>

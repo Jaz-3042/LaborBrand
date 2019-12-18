@@ -34,6 +34,16 @@
 
         <!-- Main content -->
         <section class="content">
+
+            <?php if(!empty($_GET['respuesta'])){ ?>
+                <?php if ($_GET['respuesta'] != "correcto"){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-ban"></i> Error!</h5>
+                        Error al crear una nueva orden de servicio del repuesto: <?= $_GET['mensaje'] ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
             <!-- Horizontal Form -->
             <div class="card card-info">
                 <div class="card-header">
@@ -41,7 +51,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" id="frmCreateRepuestoOrdenServicio" name="frmCreateRepuestoOrdenServicio" action="../../../app/Controladores/RepuestoOrdenServicioControladores.php?action=create">
                     <div class="card-body">
                         <div class="form-group row">
                             <label for="Justificacion" class="col-sm-2 col-form-label">Justificacion</label>
@@ -54,19 +64,7 @@
                             <div class="col-sm-10">
                                 <input required type="number" class="form-control" id="Costo_Venta" name="Costo_Venta" placeholder="Ingrese el costo de la venta">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="Repuesto_id" class="col-sm-2 col-form-label">Repuesto_id</label>
-                            <div class="col-sm-10">
-                                <input required type="number" class="form-control" id="Repuesto_Id" name="Repuesto_Id" placeholder="Ingrese el Repuesto_id">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="Orden_servicio_id" class="col-sm-2 col-form-label">Orden de servicio id</label>
-                            <div class="col-sm-10">
-                                <input required type="number" class="form-control" id="Orden_servicio_id" name="Orden_Servicio_id" placeholder="Ingrese el oden_servicio_id">
-                            </div>
-                        </div>
+
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info">Enviar</button>

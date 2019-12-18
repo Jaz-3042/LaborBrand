@@ -41,22 +41,22 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" id="frmcreatePersona" name="frmcreatePersona" action="../../../App/Controladores/PersonaControlador.php?action=create">
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="Nombres" class="col-sm-2 col-form-label">Nombres</label>
+                            <label for="Nombres" class="col-sm-2 col-form-label">Nombres :</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="Nombres" name="Nombres" placeholder="Ingrese sus nombres">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+                            <label for="Apellidos" class="col-sm-2 col-form-label">Apellidos :</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="Apellidos" name="Apellidos" placeholder="Ingrese sus apellidos">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Tipo_Documento" class="col-sm-2 col-form-label">Tipo Documento</label>
+                            <label for="Tipo_Documento" class="col-sm-2 col-form-label">Tipo Documento :</label>
                             <div class="col-sm-10">
                                 <select id="Tipo_Documento" name="Tipo_Documento" class="custom-select">
                                     <option value="T.I">Tarjeta de Identidad</option>
@@ -68,33 +68,33 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="N_documento" class="col-sm-2 col-form-label">Documento</label>
+                            <label for="N_documento" class="col-sm-2 col-form-label">Documento :</label>
                             <div class="col-sm-10">
-                                <input required type="number" max="11" min="7" class="form-control" id="N_documento" name="N_Documento" placeholder="Ingrese su documento">
+                                <input required type="number"  class="form-control" id="N_documento" name="N_Documento" placeholder="Ingrese su documento">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
+                            <label for="telefono" class="col-sm-2 col-form-label">Teléfono :</label>
                             <div class="col-sm-10">
-                                <input required type="number" max="11" min="6" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de telefono">
+                                <input required type="number" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de telefono">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="telefono" class="col-sm-2 col-form-label">Celular</label>
                             <div class="col-sm-10">
-                                <input required type="number" max="11" min="6" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de celular">
+                                <input required type="number"  class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de celular">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="direccion" class="col-sm-2 col-form-label">Direccion</label>
+                            <label for="direccion" class="col-sm-2 col-form-label">Dirección :</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su direccion">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                            <label for="Email" class="col-sm-2 col-form-label">Email :</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su direccion">
+                                <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su correo electrónico">
                             </div>
                         </div>
                     </div>

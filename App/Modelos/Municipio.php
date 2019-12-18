@@ -2,47 +2,54 @@
 
 
 namespace App\Modelos;
+use App\Modelos\BasicModel;
 
+require('BasicModel.php');
 
-class Municipio
+class Municipio extends BasicModel
 {
-    private $id;
+    private $Id;
     private $Nombre;
     private $Codigo;
 
     /**
      * Municipio constructor.
-     * @param $id
+     * @param $Id
      * @param $Nombre
      * @param $Codigo
      */
-    public function __construct($id, $Nombre, $Codigo)
+    public function __construct($Municipio = array())
     {
-        $this->id = $id;
-        $this->Nombre = $Nombre;
-        $this->Codigo = $Codigo;
+        $this->Id = $Municipio['Id'] ?? null;
+        $this->Nombre = $Municipio['Nombre'] ?? null;
+        $this->Codigo = $Municipio['Codigo'] ?? null;
+    }
+
+    /* Metodo destructor cierra la conexion. */
+    function __destruct() {
+        $this->Disconnect();
     }
 
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return $this->Id;
     }
 
     /**
-     * @param mixed $id
+     * @param mixed $Id
      */
-    public function setId($id)
+    public function setId($Id) : void
     {
-        $this->id = $id;
+        $this->id = $Id;
     }
 
     /**
      * @return mixed
      */
-    public function getNombre()
+    public function getNombre() : string
     {
         return $this->Nombre;
     }
@@ -50,7 +57,7 @@ class Municipio
     /**
      * @param mixed $Nombre
      */
-    public function setNombre($Nombre)
+    public function setNombre($Nombre) : void
     {
         $this->Nombre = $Nombre;
     }
@@ -58,7 +65,7 @@ class Municipio
     /**
      * @return mixed
      */
-    public function getCodigo()
+    public function getCodigo() : int
     {
         return $this->Codigo;
     }
@@ -66,20 +73,85 @@ class Municipio
     /**
      * @param mixed $Codigo
      */
-    public function setCodigo($Codigo)
+    public function setCodigo($Codigo) : void
     {
         $this->Codigo = $Codigo;
     }
 
-
-
-    public function MostarDatos()
+    public function create() : bool
     {
-        echo "<H4>Los datos de la persona son: </H4>";
-        echo "<ul>";
-        echo   "<li><strong>id: </strong>".$this->getId()."</li>";
-        echo   "<li><strong>Nombre: </strong>".$this->getNombre()."</li>";
-        echo   "<li><strong>Codigo: </strong>".$this->getCodigo()."</li>";
-        echo "</ul>";
+        $result = $this->insertRow("INSERT INTO bd_laborbrand.municipio VALUES (NULL, ?, ?)", array(
+                $this->Nombre,
+                $this->Codigo,
+            )
+        );
+        $this->Disconnect();
+        return $result;
+    }
+    public function update() : bool
+    {
+        $this->updateRow("UPDATE bd_laborbrand.municipio SET Nombre = ?, Codigo = ?  WHERE Id = ?", array(
+                $this->Nombre,
+                $this->Codigo,
+                $this->Id
+            )
+        );
+        $this->Disconnect();
+    }
+
+    protected function deleted($Id) : void
+    {
+        // TODO: Implement deleted() method.
+    }
+
+    protected static function search($query) : array
+    {
+        $arrMunicipio = array();
+        $tmp = new Municipio();
+        $getrows = $tmp->getRows($query);
+
+        foreach ($getrows as $valor) {
+            $Municipio = new Municipio();
+            $Municipio->Id = $valor['Id'];
+            $Municipio->Nombre = $valor['Nombre'];
+            $Municipio->Codigo = $valor['Codigo'];
+            $Municipio->Disconnect();
+            array_push($arrMunicipio, $Municipio);
+        }
+        $tmp->Disconnect();
+        return $arrMunicipio;
+    }
+
+    public static function searchForId($Id) : Municipio
+    {
+        $Municipio = null;
+        if ($Id > 0){
+            $Municipio = new Municipio();
+            $getrow = $Municipio->getRow("SELECT * FROM bd_laborbrand.municipio WHERE Id =?", array($Id));
+            $Municipio->Id = $getrow['Id'];
+            $Municipio->Nombre = $getrow['Nombre'];
+            $Municipio->Codigo= $getrow['Codigo'];
+
+            $Municipio->Disconnect();
+            return $Municipio;
+        }else{
+            $Municipio->Disconnect();
+            unset($Municipio);
+            return NULL;
+        }
+    }
+
+    public static function getAll() : array
+    {
+        return Municipio::search("SELECT * FROM bd_laborbrand.municipio");
+    }
+    public static function municipioRegistrado ($Nombre) : bool
+    {
+        $result = Municipio::search("SELECT id FROM bd_laborbrand.municipio where Nombre = ".$Nombre."'");
+        if (count($result) > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

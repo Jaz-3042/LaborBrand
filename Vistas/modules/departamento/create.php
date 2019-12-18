@@ -34,6 +34,15 @@
 
         <!-- Main content -->
         <section class="content">
+            <?php if(!empty($_GET['respuesta'])){ ?>
+                <?php if ($_GET['respuesta'] != "correcto"){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-ban"></i> Error!</h5>
+                        Error al crear el departamento: <?= $_GET['mensaje'] ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
             <!-- Horizontal Form -->
             <div class="card card-info">
                 <div class="card-header">
@@ -41,16 +50,16 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" id="frmCreateDepartamento" name="frmCreateDepartamento" action="../../../App/Controladores/DepartamentoControlador.php?action=create" >
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="Nombre" class="col-sm-2 col-form-label">Nombre</label>
+                            <label for="Nombre" class="col-sm-2 col-form-label">Nombre :</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ingrese  nombre">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Codigo" class="col-sm-2 col-form-label">Codigo</label>
+                            <label for="Codigo" class="col-sm-2 col-form-label">Codigo :</label>
                             <div class="col-sm-10">
                                 <input required type="number" class="form-control" id="Codigo" name="Codigo" placeholder="Ingrese codigo">
                             </div>

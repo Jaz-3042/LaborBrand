@@ -2,12 +2,6 @@
 
 namespace App\Modelos;
 
-/**
- * Created by PhpStorm.
- * User: Karen Lopez
- * Date: 10/12/2019
- * Time: 9:17
- */
 abstract class BasicModel {
 
     public $isConnected;
@@ -58,6 +52,7 @@ abstract class BasicModel {
             $stmt = $this->datab->prepare($query);
             $stmt->execute($params);
             return $stmt->fetch();
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -70,6 +65,7 @@ abstract class BasicModel {
             $stmt = $this->datab->prepare($query);
             $stmt->execute($params);
             return $stmt->fetchAll();
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -80,6 +76,7 @@ abstract class BasicModel {
     public function getLastId(){
         try{
             return $this->datab->lastInsertId();
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -100,7 +97,8 @@ abstract class BasicModel {
     }
 
     //updating existing row
-    //$updaterow = $database->updateRow("UPDATE users SET username = ?, email = ? WHERE id = ?", array("yusaf", "yusaf@email.com", "1"));
+    //$updaterow = $database->updateRow("UPDATE users SET username = ?, email = ? WHERE id = ?", array("yusafk", "yusafk@email.com", "1"));
+
     public function updateRow($query, $params){
         return $this->insertRow($query, $params);
     }
@@ -111,3 +109,4 @@ abstract class BasicModel {
         return $this->insertRow($query, $params);
     }
 }
+

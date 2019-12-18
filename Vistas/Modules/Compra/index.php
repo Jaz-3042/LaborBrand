@@ -1,16 +1,15 @@
 <?php require("../../partials/routes.php"); ?>
-
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 <head>
-    <title><?= getenv( 'TITLE_SITE') ?> | Layout</title>
+    <title><?= getenv('TITLE_SITE') ?> | Layout</title>
     <?php require("../../partials/head_imports.php"); ?>
 </head>
-<body class="hold-transition sidebar-mini ">
+<body class="hold-transition sidebar-mini">
 
 <!-- Site wrapper -->
 <div class="wrapper">
-    <?php require ("../../partials/navbar_customization.php"); ?>
+    <?php require("../../partials/navbar_customization.php"); ?>
 
     <?php require("../../partials/sliderbar_main_menu.php"); ?>
 
@@ -21,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Repuesto</h1>
+                        <h1>Compra</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -32,7 +31,6 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-
         <!-- Main content -->
         <section class="content">
 
@@ -42,9 +40,9 @@
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h5><i class="icon fas fa-check"></i> Correcto!</h5>
                         <?php if ($_GET['action'] == "create"){ ?>
-                            El repuesto ha sido creado con exito!
+                            la compra ha sido creada con exito!
                         <?php }else if($_GET['action'] == "update"){ ?>
-                            La descripcion del repuesto ha sido actualizada correctamente!
+                            La descripcion  de la compra  ha sido actualizada correctamente!
                         <?php } ?>
                     </div>
                 <?php } ?>
@@ -52,7 +50,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Gestionar Repuestos</h3>
+                    <h3 class="card-title">Gestionar compra</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                             <i class="fas fa-minus"></i></button>
@@ -65,7 +63,7 @@
                         <div class="col-auto mr-auto"></div>
                         <div class="col-auto">
                             <a role="button" href="create.php" class="btn btn-primary float-right" style="margin-right: 5px;">
-                                <i class="fas fa-plus"></i> Crear Repuesto
+                                <i class="fas fa-plus"></i> Crear compra
                             </a>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 <?php
+
 $basePath = realpath($_SERVER["DOCUMENT_ROOT"])."\\LaborBrand\\";
 require($basePath.'vendor\\autoload.php');
 $dotenv = Dotenv\Dotenv::create($basePath);

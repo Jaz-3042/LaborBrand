@@ -3,68 +3,70 @@
 
 namespace App\Modelos;
 
-
-class Repuesto_Orden_Servicio
+require('BasicModel.php');
+class Repuesto_Orden_Servicio extends BasicModel
 {
     private $Id;
     private $Justificacion;
     private $Costo_Venta;
-    private $Repuesto;
-    private $Orden_Servicio;
 
     /**
      * Repuesto_Orden_Servicio constructor.
      * @param $Id
      * @param $Justificacion
      * @param $Costo_Venta
-     * @param $Repuesto
-     * @param $Orden_Servicio
      */
-    public function __construct($Id, $Justificacion, $Costo_Venta, $Repuesto, $Orden_Servicio)
+    public function __construct($Repuesto = array())
     {
-        $this->Id = $Id;
-        $this->Justificacion = $Justificacion;
-        $this->Costo_Venta = $Costo_Venta;
-        $this->Repuesto = $Repuesto;
-        $this->Orden_Servicio = $Orden_Servicio;
+        parent::__construct(); //Llama al contructor padre "la clase conexion" para conectarme a la BD
+
+
+        $this->Id = $Id = $Repuesto_Orden_Servicio ['id'] ?? null;
+        $this->Justificacion = $Justificacion = $Repuesto_Orden_Servicio ["Justificacion"] ?? null;
+        $this->Costo_Venta = $Costo_Venta = $Repuesto_Orden_Servicio ["Costo_Venta"] ?? null;
+    }
+
+    /* Metodo destructor cierra la conexion. */
+    function __destruct() {
+        $this->Disconnect();
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->Id;
     }
 
     /**
-     * @param mixed $Id
+     * @param int $Id
      */
-    public function setId($Id)
+    public function setId($Id) : void
     {
         $this->Id = $Id;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getJustificacion()
+    public function getJustificacion() : string
     {
         return $this->Justificacion;
     }
 
     /**
-     * @param mixed $Justificacion
+     * @param string $Justificacion
      */
-    public function setJustificacion($Justificacion)
+    public function setJustificacion($Justificacion) : void
     {
         $this->Justificacion = $Justificacion;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getCostoVenta()
+    public function getCostoVenta() : int
     {
         return $this->Costo_Venta;
     }
@@ -72,50 +74,87 @@ class Repuesto_Orden_Servicio
     /**
      * @param mixed $Costo_Venta
      */
-    public function setCostoVenta($Costo_Venta)
+    public function setCostoVenta($Costo_Venta) : int
     {
         $this->Costo_Venta = $Costo_Venta;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getRepuesto()
+    protected function create() : bool
     {
-        return $this->Repuesto;
+        $this->insertRow("INSERT INTO bd_laborbrand.repuesto_ordenservicio VALUES (NULL, ?, ?, ?)", array(
+                $this->Id,
+                $this->Justificacion,
+                $this->Costo_Venta,
+
+
+            )
+        );
+        $this->Disconnect();
+
+    }
+        public function update() : bool
+    {
+        $result = $this->updateRow("UPDATE bd_laborbrand.repuesto_ordenservicio SET Justificacion = ?, Costo_Venta = ?, WHERE id = ?", array(
+                $this->Justificacion,
+                $this->Costo_Venta,
+                $this->id ,
+
+            )
+        );
+        $this->Disconnect();
+        return $result;
+    }
+    protected function deleted($id) : void
+    {
+        // TODO: Implement deleted() method.
+    }
+    protected static function search($query) : array
+    {
+        $arrRepuesto_Orden_Servicio = array();
+        $tmp = new Repuesto_Orden_Servicio();
+        $getrows = $tmp->getRows($query);
+
+        foreach ($getrows as $valor) {
+            $Repuesto_Orden_Servicio = new Repuesto();
+            $Repuesto_Orden_Servicio->id = $valor['id'];
+            $Repuesto_Orden_Servicio->Justificacion = $valor['Nombre'];
+            $Repuesto_Orden_Servicio->Costo_Venta = $valor['Tipo'];
+            $Repuesto_Orden_Servicio->Disconnect();
+            array_push( $arrRepuesto_Orden_Servicio, $Repuesto_Orden_Servicio);
+        }
+        $tmp->Disconnect();
+        return  $arrRepuesto_Orden_Servicio;
+    }
+    protected static function searchForId($id) : Repuesto_Orden_Servicio
+    {
+        $Repuesto_Orden_Servicio = new Repuesto_Orden_Servicio();
+        if ($id > 0){
+            $getrow = $Repuesto_Orden_Servicio->getRow("SELECT * FROM bd_laborbrand.repuesto_ordenservicio WHERE id =?", array($id));
+            $Repuesto_Orden_Servicio->id = $getrow['id'];
+            $Repuesto_Orden_Servicio->Justificacion = $getrow['Justificacion'];
+            $Repuesto_Orden_Servicio->Costo_Venta = $getrow['Costo_Venta'];
+            $Repuesto_Orden_Servicio->Disconnect();
+            return $Repuesto_Orden_Servicio;
+        }else{
+            $Repuesto_Orden_Servicio->Disconnect();
+            unset($Repuesto_Orden_Servicio);
+            return NULL;
+        }
+
     }
 
-    /**
-     * @param mixed $Repuesto
-     */
-    public function setRepuesto($Repuesto)
+    public static function getAll() : array
     {
-        $this->Repuesto = $Repuesto;
+        return Repuesto_Orden_Servicio::search("SELECT * FROM bd_laborbrand.repuesto_ordenservicio");
     }
 
-    /**
-     * @return mixed
-     */
-    public function getOrdenServicio()
+    public static function Repuesto_Orden_Servicio ($Id) : bool
     {
-        return $this->Orden_Servicio;
-    }
-
-    /**
-     * @param mixed $Orden_Servicio
-     */
-    public function setOrdenServicio($Orden_Servicio)
-    {
-        $this->Orden_Servicio = $Orden_Servicio;
-    }
-
-    public function mostrardatos()
-    {
-        echo "<h4>los datos de los respuestos son:</h4>";
-        echo "<li><strong>Id</strong>".$this->getId()."</li>";
-        echo "<li><strong>Nombre</strong>".$this->getNombre()."</li>";
-        echo "<li><strong>Tipo</strong>".$this->getTipo()."</li>";
-        echo "<li><strong>Descripcion</strong>".$this->getDescripcion()."<li/>";
+        $result = Repuesto_Orden_Servicio::search("SELECT id FROM bd_laborbrand.Repuesto_Orden_Servicio where Id = ".$Id);
+        if (count($result) > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

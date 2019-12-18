@@ -33,46 +33,58 @@
         </section>
 
         <!-- Main content -->
+
         <section class="content">
+            <?php if(!empty($_GET['respuesta'])){ ?>
+                <?php if ($_GET['respuesta'] != "correcto"){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-ban"></i> Error!</h5>
+                        Error al crear una nueva compra: <?= $_GET['mensaje'] ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
             <!-- Horizontal Form -->
             <div class="card card-info">
                 <div class="card-header">
-                    <h3 class="card-title">Horizontal Form</h3>
+                    <h3 class="card-title">Compra</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" id="frmCreateCompra" name="frmCreateCompra" action="../../../app/Controladores/CompraControladores.php?action=create">
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="N_Factura" class="col-sm-2 col-form-label">Numero de Factura</label>
+                            <label for="N_Factura" class="col-sm-2 col-form-label">N_Factura</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="N_Factura" name="N_Factura" placeholder="Ingrese Numero de Factura">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Fecha_Factura" class="col-sm-2 col-form-label">Fecha de la Factura</label>
+                            <label for="Fecha_Factura" class="col-sm-2 col-form-label">Fecha_Factura</label>
                             <div class="col-sm-10">
-                                <input required type="date" class="form-control" id="Fecha_Factura" name="Fecha_Factura" placeholder="Ingrese la f echa de la factura">
+                                <input required type="date" class="form-control" id="Fecha_Factura" name="Fecha_Factura" placeholder="Ingrese la fecha de la factura">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Descripcion" class="col-sm-2 col-form-label">Descripcion de la factura</label>
+                            <label for="Descripcion" class="col-sm-2 col-form-label">Descripcion</label>
                             <div class="col-sm-10">
                                 <input required type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripcion de la factura">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Valor_Total" class="col-sm-2 col-form-label">Valor Total</label>
+                            <label for="Valor_Total" class="col-sm-2 col-form-label">Valor_Total</label>
                             <div class="col-sm-10">
                                 <input required type="number" class="form-control" id="Valor_Total" name="Valor_Total" placeholder="Ingrese el valor total de la factura">
                             </div>
+
+
                         </div>
                         <div class="form-group row">
-                            <label for="Proveedor" class="col-sm-2 col-form-label">Proveedor</label>
+                            <label for="Proveedor_Id" class="col-sm-2 col-form-label">Proveedor_Id</label>
                             <div class="col-sm-10">
-                                <input required type="number" class="form-control" id="Proveedor" name="proveedor" placeholder="Ingrese la informacion del proveedor">
+                                <input required type="number" class="form-control" id="Proveedor_Idl" name="Proveedor_Id" placeholder="Ingrese el Proveedor_Id">
                             </div>
-                        </div>
+
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info">Enviar</button>

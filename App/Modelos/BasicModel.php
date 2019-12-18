@@ -2,12 +2,6 @@
 
 namespace App\Modelos;
 
-/**
- * Created by PhpStorm.
- * User: Diego-PC
- * Date: 10/12/2019
- * Time: 9:17
- */
 abstract class BasicModel {
 
     public $isConnected;
@@ -20,11 +14,11 @@ abstract class BasicModel {
 
     # métodos abstractos para ABM de clases que hereden
     abstract protected static function search($query);
-    abstract public static function getAll();
-    abstract public static function searchForId($Id);
+    abstract protected static function getAll();
+    abstract protected static function searchForId($id);
     abstract protected function create();
     abstract protected function update();
-    abstract protected function deleted($Id);
+    abstract protected function deleted($id);
 
     public function __construct(){
         $this->isConnected = true;
@@ -58,8 +52,10 @@ abstract class BasicModel {
             $stmt = $this->datab->prepare($query);
             $stmt->execute($params);
             return $stmt->fetch();
-        }catch(PDOException $e){
-            throw new Exception($e->getMessage());
+
+        }catch(\PDOException $e){
+            throw new \Exception($e->getMessage());
+
         }
     }
 
@@ -70,8 +66,9 @@ abstract class BasicModel {
             $stmt = $this->datab->prepare($query);
             $stmt->execute($params);
             return $stmt->fetchAll();
-        }catch(PDOException $e){
-            throw new Exception($e->getMessage());
+
+        }catch(\PDOException $e){
+            throw new \Exception($e->getMessage());
         }
     }
 
@@ -80,8 +77,9 @@ abstract class BasicModel {
     public function getLastId(){
         try{
             return $this->datab->lastInsertId();
-        }catch(PDOException $e){
-            throw new Exception($e->getMessage());
+
+        }catch(\PDOException $e){
+            throw new \Exception($e->getMessage());
         }
     }
 
@@ -94,8 +92,9 @@ abstract class BasicModel {
             }
             $stmt = $this->datab->prepare($query);
             return $stmt->execute($params);
-        }catch(PDOException $e){
-            throw new Exception($e->getMessage());
+
+        }catch(\PDOException $e){
+            throw new \Exception($e->getMessage());
         }
     }
 
@@ -111,3 +110,4 @@ abstract class BasicModel {
         return $this->insertRow($query, $params);
     }
 }
+

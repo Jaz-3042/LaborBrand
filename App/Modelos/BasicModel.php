@@ -1,9 +1,9 @@
 <?php
 
-
 namespace App\Modelos;
 
 abstract class BasicModel {
+
     public $isConnected;
     protected $datab;
     private $username = "laborbrand";
@@ -37,6 +37,7 @@ abstract class BasicModel {
             throw new \Exception($e->getMessage());
         }
     }
+
     //disconnecting from database
     //$database->Disconnect();
     public function Disconnect(){
@@ -51,8 +52,10 @@ abstract class BasicModel {
             $stmt = $this->datab->prepare($query);
             $stmt->execute($params);
             return $stmt->fetch();
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
+
         }
     }
 
@@ -63,6 +66,7 @@ abstract class BasicModel {
             $stmt = $this->datab->prepare($query);
             $stmt->execute($params);
             return $stmt->fetchAll();
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -73,6 +77,7 @@ abstract class BasicModel {
     public function getLastId(){
         try{
             return $this->datab->lastInsertId();
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -87,6 +92,7 @@ abstract class BasicModel {
             }
             $stmt = $this->datab->prepare($query);
             return $stmt->execute($params);
+
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -104,3 +110,4 @@ abstract class BasicModel {
         return $this->insertRow($query, $params);
     }
 }
+

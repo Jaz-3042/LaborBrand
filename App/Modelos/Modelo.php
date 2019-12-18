@@ -4,11 +4,14 @@
 namespace App\Modelos;
 
 
-class Modelo
+require('BasicModel.php');
+
+
+class Modelo extends BasicModel
 {
-    private$id;
-    private$Nombre;
-    private$Marca;
+    private $id;
+    private $Nombre;
+    private $Marca;
 
     /**
      * Modelo constructor.
@@ -16,41 +19,40 @@ class Modelo
      * @param $Nombre
      * @param $Marca
      */
-    public function __construct($id, $Nombre, $Marca)
+    public function __construct($Modelo = array())
     {
-        $this->id = $id;
-        $this->Nombre = $Nombre;
-        $this->Marca = $Marca;
+        parent::__construct(); //Llama al contructor padre "la clase conexion" para conectarme a la BD
+        $this->id = $Modelo['id'] ?? null;
+        $this->Nombre = $Modelo['Nombre'] ?? null;
+        $this->Marca_id = $Modelo['Marca_id'] ?? null;
+    }
+
+    /* Metodo destructor cierra la conexion. */
+    function __destruct()
+    {
+        $this->Disconnect();
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
-    public function getNombre()
+    public function getNombre(): string
     {
         return $this->Nombre;
     }
 
     /**
-     * @param mixed $Nombre
+     * @param string $Nombre
      */
-    public function setNombre($Nombre)
+    public function setNombre($Nombre): void
     {
         $this->Nombre = $Nombre;
     }
@@ -58,26 +60,94 @@ class Modelo
     /**
      * @return mixed
      */
-    public function getMarca()
+    public function getMarca_Id(): int
     {
-        return $this->Marca;
+        return $this->Marca_Id;
     }
 
     /**
-     * @param mixed $Marca
+     * @param string $Marca
      */
-    public function setMarca($Marca)
+    public function setMarca_Id($Marca_Id): void
     {
-        $this->Marca = $Marca;
+        $this->Marca_Id = $Marca_Id;
     }
 
-public function mostarDatos()
-{
-    echo"<h4> Los Datos de las Marcas son:</h4>";
-    echo"<ul>";
-    echo"<li><strong>Nombres: </strong>".$this->getId()."<li>";
-    echo"<li><strong>Apellidos: </strong>".$this->getNombre()."<li>";
-    echo"<li><strong>Telefono: </strong>".$this->getMarca()."<li>";
-    echo"</ul>";
-}
+    public function create(): bool
+    {
+        $result = $this->insertRow("INSERT INTO bd_laborbrand.modelo VALUES (NULL, ?, ?)", array(
+                $this->Nombre,
+                $this->Marca_Id,
+            )
+        );
+        $this->Disconnect();
+        return $result;
+    }
+
+    public function update(): bool
+    {
+        $result = $this->updateRow("UPDATE bd_laborbrand.modelo SET Nombre = ?, Marca_Id= ? WHERE Id = ?", array(
+                $this->Nombre,
+                $this->Marca_Id,
+                $this->Id
+            )
+        );
+        $this->Disconnect();
+        return $result;
+    }
+
+    public function deleted($Id): void
+    {
+        // TODO: Implement deleted() method.
+    }
+
+    public static function search($query): array
+    {
+        $arrModelo = array();
+        $tmp = new Modelo();
+        $getrows = $tmp->getRows($query);
+
+        foreach ($getrows as $valor) {
+            $Modelo = new Modelo();
+            $Modelo->Id = $valor['Id'];
+            $Modelo->Nombre = $valor['Nombre'];
+            $Modelo->Marca_Id = $valor['Marca_Id'];
+            $Modelo->Disconnect();
+            array_push($arrModelo, $Modelo);
+        }
+        $tmp->Disconnect();
+        return $arrModelo;
+    }
+
+    public static function searchForId($Id): Modelo
+    {
+        $Modelo = new Modelo();
+        if ($Id > 0) {
+            $getrow = $Modelo->getRow("SELECT * FROM bd_laborbrand.modelo WHERE id =?", array($Id));
+            $Modelo->Id = $getrow['Id'];
+            $Modelo->Nombre = $getrow['Nombre'];
+            $Modelo->Marca_Id = $getrow['Marca_Id'];
+            $Modelo->Disconnect();
+            return $Modelo;
+        } else {
+            $Modelo->Disconnect();
+            unset($Modelo);
+            return NULL;
+        }
+    }
+
+    public static function getAll(): array
+    {
+        return Modelo::search("SELECT * FROM bd_laborbrand.modelo");
+    }
+
+    public static function ModeloRegistrado($Nombre): bool
+    {
+        $result = Modelo::search("SELECT id FROM bd_laborbrand.modelo where Nombre= " . $Nombre);
+        if (count($result) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

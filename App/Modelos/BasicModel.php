@@ -55,7 +55,6 @@ abstract class BasicModel {
 
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
-
         }
     }
 
@@ -92,7 +91,6 @@ abstract class BasicModel {
             }
             $stmt = $this->datab->prepare($query);
             return $stmt->execute($params);
-
         }catch(\PDOException $e){
             throw new \Exception($e->getMessage());
         }
@@ -100,6 +98,7 @@ abstract class BasicModel {
 
     //updating existing row
     //$updaterow = $database->updateRow("UPDATE users SET username = ?, email = ? WHERE id = ?", array("yusafk", "yusafk@email.com", "1"));
+
     public function updateRow($query, $params){
         return $this->insertRow($query, $params);
     }

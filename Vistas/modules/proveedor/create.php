@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Crear un Nuevo Poveedor</h1>
+                        <h1>Crear un Nuevo Proveedor</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -41,24 +41,24 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" id="frmCreateProveedor" name="frmCreateProveedor" action="../../../App/Controladores/ProveedorControlador.php?action=create" >
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="Razon_Social" class="col-sm-2 col-form-label">Razon Social</label>
+                            <label for="Nombre" class="col-sm-2 col-form-label">Razón Social :</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="Razon_Social" name="Razon_Social" placeholder="Ingrese nombre empresa">
+                                <input required type="text" class="form-control" id="Razon_Social" name="Razon_Social" placeholder="Ingrese  nombre empresa">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Nit" class="col-sm-2 col-form-label">Nit</label>
+                            <label for="Codigo" class="col-sm-2 col-form-label">Nit :</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="Nit" name="Nit" placeholder="Ingrese Nit de la empresa">
+                                <input required type="text" class="form-control" id="Nit" name="Nit" placeholder="Ingrese nit de la empresa">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Representante_Legal" class="col-sm-2 col-form-label">Representante Legal</label>
+                            <label for="Codigo" class="col-sm-2 col-form-label">Representante Legal :</label>
                             <div class="col-sm-10">
-                                <input required type="text" max="11" min="7" class="form-control" id="Representante_Legal" name="Representante_Legal" placeholder="Ingrese nombre representante legal">
+                                <input required type="text" class="form-control" id="Representante_Legal" name="Representante_Legal" placeholder="Ingrese nombre vendedor">
                             </div>
                         </div>
                     </div>

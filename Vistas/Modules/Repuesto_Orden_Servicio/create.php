@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?= getenv('TITLE_SITE') ?> | Crear Departamento</title>
+    <title><?= getenv('TITLE_SITE') ?> | Crear Repuesto_OrdenServicio</title>
     <?php require("../../partials/head_imports.php"); ?>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Crear un Nuevo Departamento</h1>
+                        <h1>Crear un Nuevo Repuesto_OrdenServicio</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -34,12 +34,13 @@
 
         <!-- Main content -->
         <section class="content">
+
             <?php if(!empty($_GET['respuesta'])){ ?>
                 <?php if ($_GET['respuesta'] != "correcto"){ ?>
                     <div class="alert alert-danger alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h5><i class="icon fas fa-ban"></i> Error!</h5>
-                        Error al crear el departamento: <?= $_GET['mensaje'] ?>
+                        Error al crear una nueva orden de servicio del repuesto: <?= $_GET['mensaje'] ?>
                     </div>
                 <?php } ?>
             <?php } ?>
@@ -50,27 +51,26 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" method="post" id="frmCreateDepartamento" name="frmCreateDepartamento" action="../../../App/Controladores/DepartamentoControlador.php?action=create" >
+                <form class="form-horizontal" method="post" id="frmCreateRepuestoOrdenServicio" name="frmCreateRepuestoOrdenServicio" action="../../../app/Controladores/RepuestoOrdenServicioControladores.php?action=create">
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="Nombre" class="col-sm-2 col-form-label">Nombre :</label>
+                            <label for="Justificacion" class="col-sm-2 col-form-label">Justificacion</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ingrese  nombre">
+                                <input required type="text" class="form-control" id="Justificacion" name="Justificacion" placeholder="Ingrese una Justificacion">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Codigo" class="col-sm-2 col-form-label">Codigo :</label>
+                            <label for="Costo_Venta" class="col-sm-2 col-form-label">Costo de venta</label>
                             <div class="col-sm-10">
-                                <input required type="number" class="form-control" id="Codigo" name="Codigo" placeholder="Ingrese codigo">
+                                <input required type="number" class="form-control" id="Costo_Venta" name="Costo_Venta" placeholder="Ingrese el costo de la venta">
                             </div>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-info">Enviar</button>
-                        <button type="submit" class="btn btn-default float-right">Cancelar</button>
-                    </div>
-                    <!-- /.card-footer -->
+
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Enviar</button>
+                                    <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                                </div>
+                                <!-- /.card-footer -->
                 </form>
             </div>
             <!-- /.card -->
@@ -85,6 +85,3 @@
 <?php require ('../../partials/scripts.php');?>
 </body>
 </html>
-
-
-

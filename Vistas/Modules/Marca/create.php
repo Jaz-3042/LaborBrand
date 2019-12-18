@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?= $baseURL; ?>/Vistas/">LabordBrand</a></li>
+                            <li class="breadcrumb-item"><a href="<?= $baseURL; ?>/Vistas/">laborbrand</a></li>
                             <li class="breadcrumb-item active">Inicio</li>;
                         </ol>
                     </div>
@@ -41,23 +41,13 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="id" class="col-sm-2 col-form-label">id</label>
-                            <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="id" name="id" placeholder="Ingrese id">
-                            </div>
-                            </select>
-                        </div>
-                    </div>
 
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" id="frmCreateMarca" name="frmCreateMarca" action="../../../App/Controladores/MarcaControlador.php?action=create">
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="Marca" class="col-sm-2 col-form-label">Marca</label>
+                            <label for="Nombre" class="col-sm-2 col-form-label">Nombre</label>
                             <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="Marca" name="Marca" placeholder="Ingrese nombre de la Marca">
+                                <input required type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ingrese nombre de la Marca">
                             </div>
                                 </select>
                             </div>

@@ -33,6 +33,7 @@
         </section>
 
         <!-- Main content -->
+
         <section class="content">
             <!-- Horizontal Form -->
             <div class="card card-info">
@@ -41,35 +42,19 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="id" class="col-sm-2 col-form-label">id</label>
-                            <div class="col-sm-10">
-                                <input required type="text" class="form-control" id="id" name="id"  placeholder="Ingrese id">
-                            </div>
-                        </div>
-
+                <form class="form-horizontal" method="post" id="frmCreatevehiculo" name="frmCreatevehiculo" action="../../../App/Controladores/VehiculoControlador.php ?action=create">
                                 <div class="form-group row">
                                     <label for="N_Placa" class="col-sm-2 col-form-label">N_Placa</label>
                                     <div class="col-sm-10">
                                         <input required type="text" class="form-control" id="N_Placa" name="N_Placa"  placeholder="Ingrese número de placa">
                                     </div>
                                 </div>
-
                                         <div class="form-group row">
                                             <label for="Color" class="col-sm-2 col-form-label">Color</label>
                                             <div class="col-sm-10">
                                                 <input required type="text" class="form-control" id="Color" name="Color"  placeholder="Ingrese Color">
                                             </div>
                                         </div>
-
-                                                <div class="form-group row">
-                                                    <label for="Modelo" class="col-sm-2 col-form-label">Modelo</label>
-                                                    <div class="col-sm-10">
-                                                        <input required type="text" class="form-control" id="Modelo" name="Modelo"  placeholder="Ingrese Modelo">
-                                                    </div>
-                                                </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="submit" class="btn btn-info">Enviar</button>
